@@ -6,10 +6,11 @@ require 'vendor/autoload.php';
     $mail->Host = 'smtp.mail.com';
     $mail->Port = 587;
     $mail->SMTPAuth = true;
-    $mail->Username = 'RECIEVER USER';
-    $mail->Password = 'RECIEVER PASS';
-    $mail->setFrom('INFO', 'INFO'); // send from info
-    $mail->addAddress('INFO', 'INFO'); // to info
+// INFO NEEDS TO BE AUTHENTICATED VIA PHPMAILER, RECEIVER DOESN'T
+    $mail->Username = 'INFO USER';
+    $mail->Password = 'INFO PASS'; 
+    $mail->setFrom('info@domain.com', 'INFO'); // send from info
+    $mail->addAddress('receiver@domain.com', 'Receiver'); // to receiver
     if ($mail->addReplyTo($_POST['email'], $_POST['name'])) {
         $mail->Subject = 'PHPMailer contact form';
         $mail->isHTML(false);
